@@ -44,8 +44,6 @@ public class QuadComponent : MonoBehaviour {
 		renderer.material.mainTexture = tex;
 		
 		Vector2[] uvs = new Vector2[renderer.GetComponent<MeshFilter>().mesh.uv.Length];
-		Debug.Log ("UVs = " + renderer.GetComponent<MeshFilter>().mesh.uv.Length);
-		Debug.Log ("UVS = [" + uvs[0].ToString() + ", " + uvs[1].ToString() + ", " + uvs[2].ToString() + ", " + uvs[3].ToString() + "]");
 		
 		Vector2 pixelMin = new Vector2( (float)sprite.SpritePosition.x / (float)tex.width, 1.0f - ((float)sprite.SpritePosition.y / (float)tex.height));
 		
@@ -59,8 +57,6 @@ public class QuadComponent : MonoBehaviour {
 			uvs[1] = min + new Vector2(pixelDims.x * 1.0f, pixelDims.y * 1.0f);
 			uvs[2] = min + new Vector2(pixelDims.x * 0.0f, pixelDims.y * 0.0f);
 			uvs[3] = min + new Vector2(pixelDims.x * 1.0f, pixelDims.y * 0.0f);
-			
-			Debug.Log ("UVS = [" + uvs[0].ToString() + ", " + uvs[1].ToString() + ", " + uvs[2].ToString() + ", " + uvs[3].ToString() + "]");
 			
 			renderer.GetComponent<MeshFilter>().mesh.uv = uvs;
 		}

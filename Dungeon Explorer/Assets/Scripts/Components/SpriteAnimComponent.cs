@@ -13,7 +13,6 @@ public struct SpriteAnim
 {
 	public uint EntityID;
 	
-	public uint OwnerID;
 	public List<Sprite> AnimArray;
 	public float TimeLeft;
 	public float FPS;

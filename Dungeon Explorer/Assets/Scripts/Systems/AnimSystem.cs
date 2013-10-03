@@ -19,8 +19,10 @@ public static class AnimSystem
 				anim.TimeLeft = 1 / anim.FPS;
 				
 				switch (anim.AnimType)
-				{
-					case SpriteType.Loop:
+                {
+                    #region Handle Anim Types
+
+                    case SpriteType.Loop:
 					{
 						anim.AnimIndex = (anim.AnimIndex >= anim.AnimArray.Count - 1) ? 0 : anim.AnimIndex + anim.FrameIncrement;
 						break;
@@ -54,9 +56,10 @@ public static class AnimSystem
 						RemovalList.Add(anim.EntityID);
 					
 						break;
-					}
-					
-				}
+                    }
+
+                    #endregion
+                }
 			}
 			
 			ComponentManager.SpriteAnimComponent[key] = anim;
@@ -64,6 +67,7 @@ public static class AnimSystem
 		
 		foreach(uint key in RemovalList)
 		{
+            //TODO: AnimSystem: Substitute for garbage system
 			ComponentManager.SpriteAnimComponent.Remove(key);
 		}
 		RemovalList.Clear();

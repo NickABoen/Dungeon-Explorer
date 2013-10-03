@@ -331,7 +331,6 @@ public class AVLTreeNode<K,V>
 		AVLTreeNode<K,V> bestOfLeast;
 		
 		bool onParentLeft = true;
-		Debug.Log("Node = " + nodeToRemove.ToString());
 		
 		int compareResult = comparisonObject.Compare(nodeToRemove.dataKey, nodeToRemove.Parent.dataKey);
 		

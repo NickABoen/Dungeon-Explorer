@@ -18,7 +18,11 @@ public static class SpriteHelper
 		Down3,
 		Up1,
 		Up2,
-		Up3
+		Up3,
+        IdleUp,
+        IdleDown,
+        IdleLeft,
+        IdleRight
 	}
 	
 	public enum PlayerAnimList
@@ -26,15 +30,18 @@ public static class SpriteHelper
 		Left,
 		Right,
 		Up,
-		Down
+		Down,
+        IdleUp,
+        IdleDown,
+        IdleLeft,
+        IdleRight
 	}
 	
 	public static Sprite SetMageSprite(uint ownerID, CharPosition charPos)
 	{
 		Sprite newSprite = new Sprite()
 		{
-			EntityID = IDManager.GetNewID(),
-			OwnerID = ownerID
+			EntityID = ownerID
 		};
 		
 		switch(charPos)
@@ -46,6 +53,8 @@ public static class SpriteHelper
 			newSprite.SpriteSize = new Vector2(16,18);
 			break;
 		}
+
+        case CharPosition.IdleRight:
 		case CharPosition.Right2:
 		{
 			newSprite.SpriteSheetName = "Sprite Sheets/PlaceholderCharacterSheet1";
@@ -67,6 +76,8 @@ public static class SpriteHelper
 			newSprite.SpriteSize = new Vector2(16,18);
 			break;
 		}
+
+        case CharPosition.IdleLeft:
 		case CharPosition.Left2:
 		{
 			newSprite.SpriteSheetName = "Sprite Sheets/PlaceholderCharacterSheet1";
@@ -81,13 +92,16 @@ public static class SpriteHelper
 			newSprite.SpriteSize = new Vector2(16,18);
 			break;
 		}
+
 		case CharPosition.Down1:
 		{
 			newSprite.SpriteSheetName = "Sprite Sheets/PlaceholderCharacterSheet1";
 			newSprite.SpritePosition = new Vector2(64,216);
 			newSprite.SpriteSize = new Vector2(16,18);
 			break;
-		}
+        }
+
+        case CharPosition.IdleDown:
 		case CharPosition.Down2:
 		{
 			newSprite.SpriteSheetName = "Sprite Sheets/PlaceholderCharacterSheet1";
@@ -109,6 +123,8 @@ public static class SpriteHelper
 			newSprite.SpriteSize = new Vector2(16,18);
 			break;
 		}
+
+        case CharPosition.IdleUp:
 		case CharPosition.Up2:
 		{
 			newSprite.SpriteSheetName = "Sprite Sheets/PlaceholderCharacterSheet1";
@@ -125,7 +141,7 @@ public static class SpriteHelper
 		}
 		default:
 		{
-			Debug.Log("An Error occurred: CharPosition does not exist");
+			Debug.LogError("An Error occurred: CharPosition does not exist");
 			return new Sprite();
 		}
 		}
@@ -137,8 +153,7 @@ public static class SpriteHelper
 	{
 		SpriteAnim spriteAnim = new SpriteAnim()
 		{
-			EntityID = IDManager.GetNewID(),
-			OwnerID = ownerID,
+			EntityID = ownerID,
 			AnimArray = new List<Sprite>(),
 			FPS = 10,
 			AnimIndex = 0,
@@ -187,8 +202,36 @@ public static class SpriteHelper
 				spriteAnim.AnimArray.Add(SetMageSprite(ownerID,CharPosition.Down3));
 			
 				break;
-			}
-				
+            }
+            case PlayerAnimList.IdleUp:
+            {
+                spriteAnim.FrameIncrement = 0;
+                spriteAnim.AnimArray.Add(SetMageSprite(ownerID, CharPosition.IdleUp));
+
+                break;
+            }
+            case PlayerAnimList.IdleDown:
+            {
+                spriteAnim.FrameIncrement = 0;
+                spriteAnim.AnimArray.Add(SetMageSprite(ownerID, CharPosition.IdleDown));
+
+                break;
+            }
+            case PlayerAnimList.IdleLeft:
+            {
+                spriteAnim.FrameIncrement = 0;
+                spriteAnim.AnimArray.Add(SetMageSprite(ownerID, CharPosition.IdleLeft));
+
+                break;
+            }
+            case PlayerAnimList.IdleRight:
+            {
+                spriteAnim.FrameIncrement = 0;
+                spriteAnim.AnimArray.Add(SetMageSprite(ownerID, CharPosition.IdleRight));
+
+                break;
+            }
+
 			default:
 			{
 				throw new UnityException("PlayerAnimList is null or does not exist");
