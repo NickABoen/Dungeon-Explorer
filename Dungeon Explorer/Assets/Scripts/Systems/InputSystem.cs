@@ -33,24 +33,28 @@ public static class InputSystem
         {
             playerMovement.MoveDirection.y += 1;
             playerMovement.FacingDirection = FacingDirection.North;
+            playerMovement.LastKey = MoveUp;
         }
 
         if (Input.GetKeyDown(MoveDown))
         {
             playerMovement.MoveDirection.y -= 1;
             playerMovement.FacingDirection = FacingDirection.South;
+            playerMovement.LastKey = MoveDown;
         }
 
         if (Input.GetKeyDown(MoveLeft))
         {
             playerMovement.MoveDirection.x -= 1;
             playerMovement.FacingDirection = FacingDirection.West;
+            playerMovement.LastKey = MoveLeft;
         }
 
         if (Input.GetKeyDown(MoveRight))
         {
             playerMovement.MoveDirection.x += 1;
             playerMovement.FacingDirection = FacingDirection.East;
+            playerMovement.LastKey = MoveRight;
         }
 
         ComponentManager.MovementComponent[playerEID] = playerMovement;
@@ -64,21 +68,25 @@ public static class InputSystem
         if (Input.GetKeyUp(MoveUp))
         {
             playerMovement.MoveDirection.y -= 1;
+            playerMovement.FacingDirection = FacingDirection.North;
         }
 
         if (Input.GetKeyUp(MoveDown))
         {
             playerMovement.MoveDirection.y += 1;
+            playerMovement.FacingDirection = FacingDirection.South;
         }
 
         if (Input.GetKeyUp(MoveLeft))
         {
             playerMovement.MoveDirection.x += 1;
+            playerMovement.FacingDirection = FacingDirection.West;
         }
 
         if (Input.GetKeyUp(MoveRight))
         {
             playerMovement.MoveDirection.x -= 1;
+            playerMovement.FacingDirection = FacingDirection.East;
         }
 
         ComponentManager.MovementComponent[playerEID] = playerMovement;

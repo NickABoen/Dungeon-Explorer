@@ -51,13 +51,13 @@ public class QuadComponent : MonoBehaviour {
 		
 		//main mesh
 		{
-			Vector2 min = pixelMin;// + sprite.SpritePosition;
+            Vector2 min = pixelMin;// + sprite.SpritePosition;
 			
 			uvs[0] = min + new Vector2(pixelDims.x * 0.0f, pixelDims.y * 1.0f);
 			uvs[1] = min + new Vector2(pixelDims.x * 1.0f, pixelDims.y * 1.0f);
 			uvs[2] = min + new Vector2(pixelDims.x * 0.0f, pixelDims.y * 0.0f);
 			uvs[3] = min + new Vector2(pixelDims.x * 1.0f, pixelDims.y * 0.0f);
-			
+
 			renderer.GetComponent<MeshFilter>().mesh.uv = uvs;
 		}
 	}

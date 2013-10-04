@@ -18,6 +18,7 @@ public struct SpriteAnim
 	public float FPS;
 	public int AnimIndex;
 	public SpriteType AnimType;
+    public SpriteHelper.AnimList AnimID;
 	public int FrameIncrement;
 }
 
