@@ -59,7 +59,7 @@ public static class PlayerFactory
             FrameIncrement = 0,
             TimeLeft = 1.0f
         };
-        playerAnim = SpriteHelper.SetMageAnim(playerAnim.EntityID, SpriteHelper.PlayerAnimList.IdleDown);
+        playerAnim = SpriteHelper.SetMageAnim(playerAnim.EntityID, SpriteHelper.AnimList.IdleDown);
         ComponentManager.SpriteAnimComponent.Add(playerID, playerAnim);
 
         RenderEntity playerRender = new RenderEntity()

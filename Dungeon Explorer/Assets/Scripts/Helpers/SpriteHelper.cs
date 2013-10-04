@@ -25,7 +25,7 @@ public static class SpriteHelper
         IdleRight
 	}
 	
-	public enum PlayerAnimList
+	public enum AnimList
 	{
 		Left,
 		Right,
@@ -149,7 +149,7 @@ public static class SpriteHelper
 		return newSprite;
 	}
 	
-	public static SpriteAnim SetMageAnim(uint ownerID, PlayerAnimList anim)
+	public static SpriteAnim SetMageAnim(uint ownerID, AnimList anim)
 	{
 		SpriteAnim spriteAnim = new SpriteAnim()
 		{
@@ -164,71 +164,79 @@ public static class SpriteHelper
 		
 		switch (anim)
 		{
-			case PlayerAnimList.Left:
+			case AnimList.Left:
 			{
 				spriteAnim.AnimArray.Add(SetMageSprite(ownerID,CharPosition.Left2));
 				spriteAnim.AnimArray.Add(SetMageSprite(ownerID,CharPosition.Left1));
 				spriteAnim.AnimArray.Add(SetMageSprite(ownerID,CharPosition.Left2));
 				spriteAnim.AnimArray.Add(SetMageSprite(ownerID,CharPosition.Left3));
-			
+
+                spriteAnim.AnimID = AnimList.Left;
 				break;
 			}
 				
-			case PlayerAnimList.Right:
+			case AnimList.Right:
 			{
 				spriteAnim.AnimArray.Add(SetMageSprite(ownerID,CharPosition.Right2));
 				spriteAnim.AnimArray.Add(SetMageSprite(ownerID,CharPosition.Right1));
 				spriteAnim.AnimArray.Add(SetMageSprite(ownerID,CharPosition.Right2));
-				spriteAnim.AnimArray.Add(SetMageSprite(ownerID,CharPosition.Right3));
-			
+                spriteAnim.AnimArray.Add(SetMageSprite(ownerID, CharPosition.Right3));
+
+                spriteAnim.AnimID = AnimList.Right;
 				break;
 			}
 				
-			case PlayerAnimList.Up:
+			case AnimList.Up:
 			{
 				spriteAnim.AnimArray.Add(SetMageSprite(ownerID,CharPosition.Up2));
 				spriteAnim.AnimArray.Add(SetMageSprite(ownerID,CharPosition.Up1));
 				spriteAnim.AnimArray.Add(SetMageSprite(ownerID,CharPosition.Up2));
-				spriteAnim.AnimArray.Add(SetMageSprite(ownerID,CharPosition.Up3));
-			
+                spriteAnim.AnimArray.Add(SetMageSprite(ownerID, CharPosition.Up3));
+
+                spriteAnim.AnimID = AnimList.Up;
 				break;
 			}
 				
-			case PlayerAnimList.Down:
+			case AnimList.Down:
 			{
 				spriteAnim.AnimArray.Add(SetMageSprite(ownerID,CharPosition.Down2));
 				spriteAnim.AnimArray.Add(SetMageSprite(ownerID,CharPosition.Down1));
 				spriteAnim.AnimArray.Add(SetMageSprite(ownerID,CharPosition.Down2));
-				spriteAnim.AnimArray.Add(SetMageSprite(ownerID,CharPosition.Down3));
-			
+                spriteAnim.AnimArray.Add(SetMageSprite(ownerID, CharPosition.Down3));
+
+                spriteAnim.AnimID = AnimList.Down;
 				break;
             }
-            case PlayerAnimList.IdleUp:
+            case AnimList.IdleUp:
             {
                 spriteAnim.FrameIncrement = 0;
                 spriteAnim.AnimArray.Add(SetMageSprite(ownerID, CharPosition.IdleUp));
 
+                spriteAnim.AnimID = AnimList.IdleUp;
                 break;
             }
-            case PlayerAnimList.IdleDown:
+            case AnimList.IdleDown:
             {
                 spriteAnim.FrameIncrement = 0;
                 spriteAnim.AnimArray.Add(SetMageSprite(ownerID, CharPosition.IdleDown));
 
+                spriteAnim.AnimID = AnimList.IdleDown;
                 break;
             }
-            case PlayerAnimList.IdleLeft:
+            case AnimList.IdleLeft:
             {
                 spriteAnim.FrameIncrement = 0;
                 spriteAnim.AnimArray.Add(SetMageSprite(ownerID, CharPosition.IdleLeft));
 
+                spriteAnim.AnimID = AnimList.IdleLeft;
                 break;
             }
-            case PlayerAnimList.IdleRight:
+            case AnimList.IdleRight:
             {
                 spriteAnim.FrameIncrement = 0;
                 spriteAnim.AnimArray.Add(SetMageSprite(ownerID, CharPosition.IdleRight));
 
+                spriteAnim.AnimID = AnimList.IdleRight;
                 break;
             }
 

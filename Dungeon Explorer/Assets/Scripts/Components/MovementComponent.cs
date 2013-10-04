@@ -15,11 +15,7 @@ public struct Movement
 
     public Vector2 MoveDirection;
 
-    public Vector2 OldMoveDirection;
-
     public FacingDirection FacingDirection;
-
-    public FacingDirection OldFacingDirection;
 
     public KeyCode LastKey;
 
