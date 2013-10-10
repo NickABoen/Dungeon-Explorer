@@ -27,12 +27,12 @@ public class GameComponent<T>
 		get{return elements.ToKeyArray();}
 	}
 	
-	public void Add(uint elementID, T component)
+	public virtual void Add(uint elementID, T component)
 	{
 		elements.Insert(elementID, component);
 	}
-	
-	public void Remove(uint elementID)
+
+    public virtual void Remove(uint elementID)
 	{
 		if(elements.Contains(elementID))
 		{

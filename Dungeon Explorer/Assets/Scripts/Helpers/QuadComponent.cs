@@ -38,6 +38,7 @@ public class QuadComponent : MonoBehaviour {
 		renderer.material.mainTexture = tex;
 	}
 	
+
 	public void ApplySprite(Sprite sprite)
 	{
 		Texture tex = Resources.Load(sprite.SpriteSheetName) as Texture;
