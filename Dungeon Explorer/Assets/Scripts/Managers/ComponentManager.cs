@@ -10,6 +10,7 @@ public static class ComponentManager
 	public static PlayerComponent PlayerComponent = new PlayerComponent();
     public static MovementComponent MovementComponent = new MovementComponent();
     public static RenderComponent RenderComponent = new RenderComponent();
+    public static CameraComponent CameraComponent = new CameraComponent();
 	
 	public static void RemoveFromAll(uint elementID)
 	{
@@ -20,5 +21,6 @@ public static class ComponentManager
 		PlayerComponent.Remove(elementID);
         MovementComponent.Remove(elementID);
         RenderComponent.Remove(elementID);
+        CameraComponent.Remove(elementID);
 	}
 }

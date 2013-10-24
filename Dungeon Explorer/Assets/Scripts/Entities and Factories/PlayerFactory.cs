@@ -32,14 +32,7 @@ public static class PlayerFactory
         };
         ComponentManager.PositionComponent.Add(playerID, playerPosition);
 
-        PlaneLink playerPlane = new PlaneLink()
-        {
-            EntityID = playerID,
-            
-            //Change to create new Plane Object
-            PlaneObject = GameObject.Find("Quad-Instance")
-        };
-        ComponentManager.PlaneComponent.Add(playerID, playerPlane);
+        ComponentManager.PlaneComponent.Add(playerID);
 
         Movement playerMovement = new Movement()
         {

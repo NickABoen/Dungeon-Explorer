@@ -128,5 +128,3 @@ public static class MovementSystem
         }
     }
 }
-
-//

@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class AVLTreeTester : MonoBehaviour {
+public class Main : MonoBehaviour {
     public uint PlayerID;
 
 	// Use this for initialization
@@ -17,6 +17,7 @@ public class AVLTreeTester : MonoBehaviour {
 		*/
 
         PlayerID = PlayerFactory.CreatePlayer();
+        CameraFactory.CreateCamera(PlayerID, true);
 	}
 	
 	// Update is called once per frame
@@ -24,6 +25,7 @@ public class AVLTreeTester : MonoBehaviour {
 		
 		InputSystem.Update();
         MovementSystem.Update();
+        CameraSystem.Update();
 		AnimSystem.Update();
 		RenderSystem.Update();
 	}

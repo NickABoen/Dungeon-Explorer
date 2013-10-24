@@ -35,15 +35,15 @@ public class CreatePlane : ScriptableWizard
     public bool createAtOrigin = true;
     public string optionalName;
  
-    static Camera cam;
-    static Camera lastUsedCam;
+    static UnityEngine.Camera cam;
+    static UnityEngine.Camera lastUsedCam;
  
  
     [MenuItem("GameObject/Create Other/Custom Plane...")]
     static void CreateWizard()
     {
-        cam = Camera.current;
-        // Hack because camera.current doesn't return editor camera if scene view doesn't have focus
+        cam = UnityEngine.Camera.current;
+        // Hack because UnityEngine.Camera.current doesn't return editor UnityEngine.Camera if scene view doesn't have focus
         if (!cam)
             cam = lastUsedCam;
         else
